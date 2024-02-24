@@ -30,3 +30,25 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50px;
+  position: relative;
+}
+
+.bordert {
+  border-top: 1px solid #aaa;
+  position: relative;
+}
+
+.bordert:after {
+  content: "or connect with";
+  position: absolute;
+  top: -14px;
+  left: 38%;
+  background-color: #fff;
+  padding: 0;
+}
