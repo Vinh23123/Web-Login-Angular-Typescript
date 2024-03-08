@@ -51,4 +51,13 @@ export class LoginComponent implements OnInit {
   reloadPage(): void {
     window.location.reload();
   }
+
+  // loginWithFacebook(): void {
+  //   this.authService.loginWithFacebook().subscribe(() => {
+  //     this.authService.getUserInfo().subscribe((user) => {
+  //       console.log(user);
+  //       // Redirect or do something else with the user info
+  //     });
+  //   });
+  // }
 }

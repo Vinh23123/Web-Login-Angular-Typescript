@@ -62,4 +62,12 @@ export class AuthService {
 
   // // Khi đăng xuất
   // this.authService.removeToken();
+
+  // loginWithFacebook(): Observable<any> {
+  //   return this.http.get("/login/facebook");
+  // }
+
+  // getUserInfo(): Observable<any> {
+  //   return this.http.get("/user");
+  // }
 }

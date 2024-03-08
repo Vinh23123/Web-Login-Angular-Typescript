@@ -1,15 +1,19 @@
-import { Component } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { StorageService } from './_services/storage.service';
-import { AuthService } from './_services/auth.service';
-import { EventBusService } from './_shared/event-bus.service';
+import { Component } from "@angular/core";
+import { Subscription } from "rxjs";
+import { StorageService } from "./_services/storage.service";
+import { AuthService } from "./_services/auth.service";
+import { EventBusService } from "./_shared/event-bus.service";
+
+// const logo = require("../image/Gs.jpg").default as string;
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
+  // logo = logo;
+
   private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
@@ -31,28 +35,28 @@ export class AppComponent {
       const user = this.storageService.getUser();
       this.roles = user.roles;
 
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      this.showAdminBoard = this.roles.includes("ROLE_ADMIN");
+      this.showModeratorBoard = this.roles.includes("ROLE_MODERATOR");
 
       this.username = user.username;
     }
 
-    this.eventBusSub = this.eventBusService.on('logout', () => {
+    this.eventBusSub = this.eventBusService.on("logout", () => {
       this.logout();
     });
   }
 
   logout(): void {
     this.authService.logout().subscribe({
-      next: res => {
+      next: (res) => {
         console.log(res);
         this.storageService.clean();
 
         window.location.reload();
       },
-      error: err => {
+      error: (err) => {
         console.log(err);
-      }
+      },
     });
   }
 }
